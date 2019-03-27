@@ -9,26 +9,20 @@
 import Foundation
 final class ApiClient{
     static let key = "15aa5f619ef447b583cdff553f92edaf"
-    static func getAllNews(){
-        final class NewsApiClient{
-            static func getAllArticles(query: String, callBack: @escaping (AppError?, [ArticleWrapper]?) -> Void){
-                
-                let newsEndPoint = "https://newsapi.org/v2/everything?q=\(query)&apiKey=\(ApiClient.key)"
-                NetworkHelper.shared.performDataTask(endpointURLString: newsEndPoint, httpMethod: "GET", httpBody: nil) { (appError, newsData) in
-                    if let appError = appError {
-                        callBack(appError, nil)
-                    }
-                    if let newsData = newsData {
-                        do{
-                            let onlineNewsData = try JSONDecoder().decode(NewsData.self, from: newsData)
-                            callBack(nil, onlineNewsData.articles)
-                        } catch{
-                            callBack(AppError.jsonDecodingError(error), nil)
-                        }
-                    }
+    static func getAllArticles(query: String, callBack: @escaping (AppError?, [ArticleWrapper]?) -> Void){
+        
+        let newsEndPoint = "https://newsapi.org/v2/everything?q=\(query)&apiKey=\(ApiClient.key)"
+        NetworkHelper.shared.performDataTask(endpointURLString: newsEndPoint, httpMethod: "GET", httpBody: nil) { (appError, newsData) in
+            if let appError = appError {
+                callBack(appError, nil)
+            }
+            if let newsData = newsData {
+                do{
+                    let onlineNewsData = try JSONDecoder().decode(NewsData.self, from: newsData)
+                    callBack(nil, onlineNewsData.articles)
+                } catch{
+                    callBack(AppError.jsonDecodingError(error), nil)
                 }
-                
-                
             }
         }
     }
