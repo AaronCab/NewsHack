@@ -10,6 +10,7 @@ import Foundation
 final class ApiClient{
     static let key = "15aa5f619ef447b583cdff553f92edaf"
 
+
             static func getAllArticles(query: String, callBack: @escaping (AppError?, [ArticleWrapper]?) -> Void){
                 
                 let newsEndPoint = "https://newsapi.org/v2/everything?q=\(query)&apiKey=\(ApiClient.key)"
@@ -26,9 +27,7 @@ final class ApiClient{
                         }
                     }
                 }
-                
-                
-            }
+    }
     
     
     static func getTopHeadlineByCountry(country: String, completionHandler: @escaping([ArticleWrapper]?, AppError?) -> Void) {
@@ -66,4 +65,5 @@ final class ApiClient{
     }
     
 }
+
 
