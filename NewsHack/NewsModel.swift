@@ -20,7 +20,7 @@ struct ArticleWrapper: Codable {
     let url: String
     let urlToImage: String
     let publishedAt: String
-    let content: String
+    let content: String?
 }
 
 struct SourceWrapper : Codable {
