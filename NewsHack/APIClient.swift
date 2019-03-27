@@ -9,8 +9,7 @@
 import Foundation
 final class ApiClient{
     static let key = "15aa5f619ef447b583cdff553f92edaf"
-    static func getAllNews(){
-        final class NewsApiClient{
+
             static func getAllArticles(query: String, callBack: @escaping (AppError?, [ArticleWrapper]?) -> Void){
                 
                 let newsEndPoint = "https://newsapi.org/v2/everything?q=\(query)&apiKey=\(ApiClient.key)"
@@ -30,8 +29,8 @@ final class ApiClient{
                 
                 
             }
-        }
-    }
+    
+    
     static func getTopHeadlineByCountry(country: String, completionHandler: @escaping([ArticleWrapper]?, AppError?) -> Void) {
         let urlString =  "https://newsapi.org/v2/top-headlines?country=\(country)&apiKey=\(ApiClient.key)"
         NetworkHelper.shared.performDataTask(endpointURLString: urlString, httpMethod: "GET", httpBody: nil) { (error, data) in
