@@ -24,6 +24,7 @@
 		9380F113224BE3010089A947 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380F112224BE3010089A947 /* UIViewController+Extensions.swift */; };
 		9380F118224BEEA30089A947 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380F117224BEEA30089A947 /* CountryModel.swift */; };
 		9380F11A224BF9160089A947 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380F119224BF9160089A947 /* NewsModel.swift */; };
+		9380F11C224C08660089A947 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380F11B224C08660089A947 /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		9380F112224BE3010089A947 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9380F117224BEEA30089A947 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		9380F119224BF9160089A947 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		9380F11B224C08660089A947 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				9380F0EE224BE0D10089A947 /* AppDelegate.swift */,
 				9380F117224BEEA30089A947 /* CountryModel.swift */,
 				9380F119224BF9160089A947 /* NewsModel.swift */,
+				9380F11B224C08660089A947 /* APIClient.swift */,
 				9380F116224BEE5E0089A947 /* Controllers */,
 				9380F115224BEE2A0089A947 /* Network Services */,
 				9380F114224BEDFB0089A947 /* Extensions */,
@@ -203,6 +206,7 @@
 				9380F10F224BE28C0089A947 /* NetworkHelper.swift in Sources */,
 				9380F113224BE3010089A947 /* UIViewController+Extensions.swift in Sources */,
 				9380F10B224BE20B0089A947 /* ImageCache.swift in Sources */,
+				9380F11C224C08660089A947 /* APIClient.swift in Sources */,
 				9380F103224BE1770089A947 /* Date+Extension.swift in Sources */,
 				9380F107224BE1BB0089A947 /* FileManager.swift in Sources */,
 				9380F0EF224BE0D10089A947 /* AppDelegate.swift in Sources */,
