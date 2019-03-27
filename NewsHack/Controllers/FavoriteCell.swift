@@ -9,5 +9,10 @@
 import UIKit
 
 class FavoriteCell: UICollectionViewCell {
+    @IBOutlet weak var favoriteImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var authorLabel: UILabel!
+    
+    @IBOutlet weak var descriptionTextView: UITextView!
 }

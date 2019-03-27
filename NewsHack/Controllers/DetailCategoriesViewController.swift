@@ -10,6 +10,7 @@ import UIKit
 
 class DetailCategoriesViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

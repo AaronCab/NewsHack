@@ -32,7 +32,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCell" id="VPL-mY-gbB">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCell" id="VPL-mY-gbB" customClass="NewsFeedCell" customModule="NewsHack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="276"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -72,6 +72,11 @@
                                             <constraint firstItem="WLY-aZ-2Q3" firstAttribute="top" secondItem="nR5-jw-iRf" secondAttribute="bottom" constant="4" id="wAT-Hp-YdK"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="nR5-jw-iRf" secondAttribute="trailing" constant="11" id="yRE-aN-WxX"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="DescriptionLabel" destination="WLY-aZ-2Q3" id="5oN-5J-TuJ"/>
+                                            <outlet property="newsFeedImage" destination="uL7-Jm-VO1" id="fWf-gl-AAb"/>
+                                            <outlet property="titleLabel" destination="nR5-jw-iRf" id="arC-bX-Wt8"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -89,6 +94,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="News Feed" id="WcH-pO-O7z"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Sk5-Gq-i07" id="2TE-jB-UPS"/>
+                        <outlet property="searchBarLabel" destination="wfs-bo-fsB" id="GM3-3p-uqJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,7 +125,7 @@
         <!--Settings-->
         <scene sceneID="SuY-Xd-un0">
             <objects>
-                <viewController id="p50-lV-XHY" sceneMemberID="viewController">
+                <viewController id="p50-lV-XHY" customClass="SettingsViewController" customModule="NewsHack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cQt-Dr-c73">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,9 +154,15 @@
                                     <constraint firstAttribute="height" constant="128" id="r6v-Se-Mno"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="profileImageBttnPressed:" destination="p50-lV-XHY" eventType="touchUpInside" id="5a8-zw-l27"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxZ-lC-Qnb">
                                 <rect key="frame" x="16" y="79" width="343" height="30"/>
+                                <connections>
+                                    <action selector="usernamePressed:" destination="p50-lV-XHY" eventType="touchUpInside" id="rj1-wS-rNU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -170,6 +185,11 @@
                         <viewLayoutGuide key="safeArea" id="aJL-gN-xXB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="yj0-Le-Yj5"/>
+                    <connections>
+                        <outlet property="pickerView" destination="h9r-Y1-feY" id="Cvk-6o-JVd"/>
+                        <outlet property="profileImage" destination="k1q-uT-oMW" id="Hpt-ah-rvm"/>
+                        <outlet property="usernameLabel" destination="7QS-W3-TIK" id="R56-kV-i7p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAw-9p-uS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,7 +198,7 @@
         <!--Favorites-->
         <scene sceneID="1Me-0H-Lcn">
             <objects>
-                <viewController id="jM4-9U-mNj" sceneMemberID="viewController">
+                <viewController id="jM4-9U-mNj" customClass="FavoritesViewController" customModule="NewsHack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pTM-ue-CJG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,7 +213,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoriteCell" id="aJh-wI-TX6">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoriteCell" id="aJh-wI-TX6" customClass="FavoriteCell" customModule="NewsHack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -242,6 +262,12 @@
                                             <constraint firstItem="Zql-41-AC3" firstAttribute="leading" secondItem="aJh-wI-TX6" secondAttribute="leadingMargin" constant="12" id="gzH-ay-oHK"/>
                                             <constraint firstItem="Xmk-Om-7Wm" firstAttribute="top" secondItem="8cS-wp-jsT" secondAttribute="bottom" constant="8" id="kLZ-A9-MX9"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="authorLabel" destination="Xmk-Om-7Wm" id="ZV6-eQ-j2a"/>
+                                            <outlet property="descriptionTextView" destination="Zql-41-AC3" id="VEK-vf-I9P"/>
+                                            <outlet property="favoriteImage" destination="dTV-Mi-8wY" id="xgT-yo-rUq"/>
+                                            <outlet property="titleLabel" destination="8cS-wp-jsT" id="1vQ-Sz-s3d"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -256,6 +282,9 @@
                         <viewLayoutGuide key="safeArea" id="2lO-Zl-lZE"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="Qxj-M6-bfw"/>
+                    <connections>
+                        <outlet property="favoriteCollectionView" destination="Xbr-7f-G5i" id="EdU-Up-6QE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="630-Pd-Rnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -264,7 +293,7 @@
         <!--Category-->
         <scene sceneID="MtD-53-8Bk">
             <objects>
-                <viewController id="sb4-Eo-c2e" sceneMemberID="viewController">
+                <viewController id="sb4-Eo-c2e" customClass="CategoriesViewController" customModule="NewsHack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IzD-SK-ETp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,7 +306,7 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="131" id="jIL-rq-wOV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="131" id="jIL-rq-wOV" customClass="CategoryCell" customModule="NewsHack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="131"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jIL-rq-wOV" id="jsJ-9C-Wwm">
@@ -306,6 +335,11 @@
                                                 <constraint firstItem="ZTb-Mn-xdj" firstAttribute="leading" secondItem="4Do-Jg-ykD" secondAttribute="trailing" constant="8" id="njS-bd-NbM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryImage" destination="4Do-Jg-ykD" id="qij-Ng-WCG"/>
+                                            <outlet property="categoryNameLabel" destination="ZTb-Mn-xdj" id="pFM-Ut-IXf"/>
+                                            <segue destination="s3l-ge-pJ3" kind="show" id="11R-HP-YmC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -323,21 +357,25 @@
                         <viewLayoutGuide key="safeArea" id="cmt-Nw-3Bu"/>
                     </view>
                     <navigationItem key="navigationItem" title="Category" id="kDa-GC-klJ"/>
+                    <connections>
+                        <outlet property="searchBar" destination="W1j-0A-9ma" id="DX5-fs-qhe"/>
+                        <outlet property="tableView" destination="cCJ-Tf-YeU" id="iOf-u4-4tx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rO-Mo-SKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2013.5999999999999" y="896.40179910044981"/>
         </scene>
-        <!--View Controller-->
+        <!--Category-->
         <scene sceneID="Nwy-yc-aJU">
             <objects>
-                <viewController id="84t-Wc-h1s" sceneMemberID="viewController">
+                <viewController id="84t-Wc-h1s" customClass="DetailCategoriesViewController" customModule="NewsHack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ke8-6n-Rgj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fTe-dS-ev0">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rlq-bY-WPy">
                                     <size key="itemSize" width="369" height="411"/>
@@ -346,7 +384,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fpD-6Y-wm9">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fpD-6Y-wm9" customClass="CategoriesNewsFeedCell" customModule="NewsHack" customModuleProvider="target">
                                         <rect key="frame" x="3" y="0.0" width="369" height="411"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -383,6 +421,11 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="ieh-bU-0jN" secondAttribute="trailing" constant="11" id="t92-gh-g8G"/>
                                             <constraint firstItem="ieh-bU-0jN" firstAttribute="top" secondItem="STi-Wh-PKL" secondAttribute="bottom" constant="8" id="xbf-Je-I0J"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="ieh-bU-0jN" id="JMu-yb-dhw"/>
+                                            <outlet property="newsFeedImage" destination="Y9T-7d-eaQ" id="R0O-KH-Qp9"/>
+                                            <outlet property="titleLabel" destination="STi-Wh-PKL" id="aHU-jJ-acU"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -396,10 +439,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ygl-ZG-qd7"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Category" id="q26-d1-kLQ"/>
+                    <connections>
+                        <outlet property="collectionView" destination="fTe-dS-ev0" id="cWG-d6-Vn4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2V-l8-lp8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2864.8000000000002" y="895.50224887556226"/>
+            <point key="canvasLocation" x="3804" y="895.50224887556226"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="z55-a5-Me7">
@@ -407,6 +454,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lAx-IW-JeL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3KB-bd-ecY">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -477,6 +525,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIe-TK-EcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="933.60000000000002" y="898.2008995502249"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KRf-KJ-hSb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s3l-ge-pJ3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5hx-NR-5OM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="84t-Wc-h1s" kind="relationship" relationship="rootViewController" id="SBd-xm-F6e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BTP-Dd-F8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2864.8000000000002" y="895.50224887556226"/>
         </scene>
     </scenes>
 </document>
