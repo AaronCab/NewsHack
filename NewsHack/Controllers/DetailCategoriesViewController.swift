@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DetailCategoriesViewController.swift
 //  NewsHack
 //
 //  Created by Aaron Cabreja on 3/27/19.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DetailCategoriesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
     }
-
+    
 }
-
