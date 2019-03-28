@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct FavoritesModel: Codable {
+    let title: String
+    let author: String
+    let imageURL: URL
+    let description: String
+}
