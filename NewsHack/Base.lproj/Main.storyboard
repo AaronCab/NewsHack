@@ -75,7 +75,7 @@
                                                         <color key="titleColor" red="0.63052593059999995" green="0.045729250419999999" blue="0.12005908699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="saveToFavorites:" destination="VPL-mY-gbB" eventType="touchUpInside" id="Gfw-Yv-bN7"/>
+                                                        <action selector="addToFavorites:" destination="VPL-mY-gbB" eventType="touchUpInside" id="ov6-El-VN5"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -98,6 +98,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="DescriptionLabel" destination="kBv-p9-j0z" id="kvX-s4-ML9"/>
+                                            <outlet property="addToFavorites" destination="bvy-1J-dD2" id="XK8-MR-uTi"/>
                                             <outlet property="newsFeedImage" destination="uL7-Jm-VO1" id="nNG-a2-AVz"/>
                                             <outlet property="sourceLabel" destination="hyw-LA-Z0o" id="XKX-Y9-cdi"/>
                                             <outlet property="titleLabel" destination="nfo-rc-6zc" id="NIP-p9-1ZR"/>
@@ -147,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="935.20000000000005" y="132.68365817091455"/>
         </scene>
-        <!--Settings-->
+        <!--Country-->
         <scene sceneID="SuY-Xd-un0">
             <objects>
-                <viewController id="p50-lV-XHY" customClass="SettingsViewController" customModule="NewsHack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="p50-lV-XHY" customClass="CountryCategoryViewController" customModule="NewsHack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cQt-Dr-c73">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,53 +173,33 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9r-Y1-feY">
                                 <rect key="frame" x="0.0" y="286" width="375" height="332"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcq-8P-wel" customClass="CircularButton" customModule="NewsHack" customModuleProvider="target">
-                                <rect key="frame" x="123.5" y="141" width="128" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="Tip-te-ZIe"/>
-                                    <constraint firstAttribute="height" constant="128" id="r6v-Se-Mno"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="profileImageBttnPressed:" destination="p50-lV-XHY" eventType="touchUpInside" id="5a8-zw-l27"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxZ-lC-Qnb">
-                                <rect key="frame" x="16" y="79" width="343" height="30"/>
-                                <connections>
-                                    <action selector="usernamePressed:" destination="p50-lV-XHY" eventType="touchUpInside" id="rj1-wS-rNU"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dcq-8P-wel" firstAttribute="centerX" secondItem="7QS-W3-TIK" secondAttribute="centerX" id="2Oj-oZ-CJx"/>
                             <constraint firstItem="h9r-Y1-feY" firstAttribute="top" secondItem="k1q-uT-oMW" secondAttribute="bottom" constant="17" id="5NM-ya-ByY"/>
-                            <constraint firstItem="RxZ-lC-Qnb" firstAttribute="leading" secondItem="aJL-gN-xXB" secondAttribute="leading" constant="16" id="BYU-W9-GbG"/>
                             <constraint firstItem="h9r-Y1-feY" firstAttribute="leading" secondItem="aJL-gN-xXB" secondAttribute="leading" id="C5V-vd-fbq"/>
                             <constraint firstItem="k1q-uT-oMW" firstAttribute="centerX" secondItem="cQt-Dr-c73" secondAttribute="centerX" id="Gfw-hY-BMa"/>
                             <constraint firstItem="7QS-W3-TIK" firstAttribute="leading" secondItem="aJL-gN-xXB" secondAttribute="leading" constant="11" id="HbO-qk-cXe"/>
                             <constraint firstItem="7QS-W3-TIK" firstAttribute="top" secondItem="aJL-gN-xXB" secondAttribute="top" constant="20" id="MbF-1S-MBK"/>
-                            <constraint firstItem="dcq-8P-wel" firstAttribute="top" secondItem="k1q-uT-oMW" secondAttribute="top" id="PJa-sl-H9p"/>
                             <constraint firstItem="h9r-Y1-feY" firstAttribute="trailing" secondItem="aJL-gN-xXB" secondAttribute="trailing" id="ZZI-uW-nF9"/>
-                            <constraint firstItem="RxZ-lC-Qnb" firstAttribute="top" secondItem="aJL-gN-xXB" secondAttribute="top" constant="15" id="b1p-nS-JHO"/>
                             <constraint firstItem="k1q-uT-oMW" firstAttribute="top" secondItem="aJL-gN-xXB" secondAttribute="top" constant="77" id="cVa-eF-Ebj"/>
-                            <constraint firstItem="aJL-gN-xXB" firstAttribute="trailing" secondItem="RxZ-lC-Qnb" secondAttribute="trailing" constant="16" id="fzJ-h6-uma"/>
                             <constraint firstItem="aJL-gN-xXB" firstAttribute="trailing" secondItem="7QS-W3-TIK" secondAttribute="trailing" constant="11" id="jo3-tn-7XC"/>
                             <constraint firstItem="h9r-Y1-feY" firstAttribute="bottom" secondItem="aJL-gN-xXB" secondAttribute="bottom" id="pew-fq-wWT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aJL-gN-xXB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="yj0-Le-Yj5"/>
+                    <navigationItem key="navigationItem" title="Country" id="yj0-Le-Yj5"/>
                     <connections>
                         <outlet property="pickerView" destination="h9r-Y1-feY" id="Cvk-6o-JVd"/>
                         <outlet property="profileImage" destination="k1q-uT-oMW" id="Hpt-ah-rvm"/>
                         <outlet property="usernameLabel" destination="7QS-W3-TIK" id="R56-kV-i7p"/>
+                        <segue destination="kfm-CZ-se3" kind="unwind" identifier="Unwind from Country Category ViewController" unwindAction="unwindFromCountryCategoryViewController:" id="BnB-57-mTq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAw-9p-uS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="kfm-CZ-se3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2013.5999999999999" y="2615.4422788605698"/>
+            <point key="canvasLocation" x="4596" y="897"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="1Me-0H-Lcn">
@@ -313,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="630-Pd-Rnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2015" y="1737"/>
+            <point key="canvasLocation" x="2258" y="1635"/>
         </scene>
         <!--Category-->
         <scene sceneID="MtD-53-8Bk">
@@ -464,7 +445,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ygl-ZG-qd7"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Category" id="q26-d1-kLQ"/>
+                    <navigationItem key="navigationItem" title="Category" id="q26-d1-kLQ">
+                        <barButtonItem key="rightBarButtonItem" title="Country" id="kVG-8z-vHc">
+                            <connections>
+                                <segue destination="p50-lV-XHY" kind="show" id="iFC-Cl-lae"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="fTe-dS-ev0" id="cWG-d6-Vn4"/>
                     </connections>
@@ -487,31 +474,28 @@
                         <segue destination="g4v-NJ-4rm" kind="relationship" relationship="viewControllers" id="F8z-Xu-fkw"/>
                         <segue destination="atg-GV-NNf" kind="relationship" relationship="viewControllers" id="Gaz-oX-k59"/>
                         <segue destination="83h-7W-Hwt" kind="relationship" relationship="viewControllers" id="7Zm-Q8-iZg"/>
-                        <segue destination="AEN-9h-cai" kind="relationship" relationship="viewControllers" id="oZ1-oy-Obq"/>
+                        <segue destination="xdR-6d-DQM" kind="relationship" relationship="viewControllers" id="lcb-br-Mi3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3s-jC-jnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4" y="132.68365817091455"/>
         </scene>
-        <!--Setting-->
-        <scene sceneID="DiC-7x-3Uh">
+        <!--View Controller-->
+        <scene sceneID="81D-yi-LCl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AEN-9h-cai" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" id="61m-B0-q8o"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lGk-AF-sPn">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="p50-lV-XHY" kind="relationship" relationship="rootViewController" id="Oca-kp-XI6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dc9-AM-tAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="hTE-95-OdN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iy4-zf-KNR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eEv-Vd-Tor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lhc-c8-GR4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kvO-sW-l74" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="933.60000000000002" y="2616.3418290854574"/>
+            <point key="canvasLocation" x="2257" y="2559"/>
         </scene>
         <!--Favorite-->
         <scene sceneID="M2N-Tw-wqC">
@@ -568,6 +552,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTP-Dd-F8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2864.8000000000002" y="895.50224887556226"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="IC0-Cv-fmz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xdR-6d-DQM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="U2Y-NP-FTp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8tw-46-vGj">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hTE-95-OdN" kind="relationship" relationship="rootViewController" id="grq-Mv-mA2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UMh-3g-opI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="934" y="2559"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
