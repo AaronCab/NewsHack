@@ -338,7 +338,7 @@
                                         <connections>
                                             <outlet property="categoryImage" destination="4Do-Jg-ykD" id="qij-Ng-WCG"/>
                                             <outlet property="categoryNameLabel" destination="ZTb-Mn-xdj" id="pFM-Ut-IXf"/>
-                                            <segue destination="s3l-ge-pJ3" kind="show" id="11R-HP-YmC"/>
+                                            <segue destination="s3l-ge-pJ3" kind="show" id="SWj-NJ-fa9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
