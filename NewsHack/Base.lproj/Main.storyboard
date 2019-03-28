@@ -74,9 +74,6 @@
                                                     <state key="normal">
                                                         <color key="titleColor" red="0.63052593059999995" green="0.045729250419999999" blue="0.12005908699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="saveToFavorites:" destination="VPL-mY-gbB" eventType="touchUpInside" id="Gfw-Yv-bN7"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
@@ -98,6 +95,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="DescriptionLabel" destination="kBv-p9-j0z" id="kvX-s4-ML9"/>
+                                            <outlet property="addToFavorites" destination="bvy-1J-dD2" id="XK8-MR-uTi"/>
                                             <outlet property="newsFeedImage" destination="uL7-Jm-VO1" id="nNG-a2-AVz"/>
                                             <outlet property="sourceLabel" destination="hyw-LA-Z0o" id="XKX-Y9-cdi"/>
                                             <outlet property="titleLabel" destination="nfo-rc-6zc" id="NIP-p9-1ZR"/>

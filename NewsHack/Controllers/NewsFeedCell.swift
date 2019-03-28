@@ -13,12 +13,12 @@ class NewsFeedCell: UICollectionViewCell {
     
     @IBOutlet weak var sourceLabel: UILabel!
     
+    @IBOutlet weak var addToFavorites: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var DescriptionLabel: UILabel!
     
     
     
     
-    @IBAction func saveToFavorites(_ sender: Any) {
-    }
+  
 }
