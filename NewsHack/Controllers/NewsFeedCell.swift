@@ -24,6 +24,9 @@ class NewsFeedCell: UICollectionViewCell {
     
     
 
+    
+
+
     @IBAction func saveToFavorites(_ sender: Any) {
         delegate.didSaveArticle(cell: self)
     }
