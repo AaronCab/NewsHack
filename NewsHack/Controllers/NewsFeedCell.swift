@@ -21,6 +21,8 @@ class NewsFeedCell: UICollectionViewCell {
     @IBOutlet weak var DescriptionLabel: UILabel!
     weak var delegate: NewsFeedCellDelegate!
     
+    @IBAction func addToFavorites(_ sender: Any) {
+    }
     
     
 
