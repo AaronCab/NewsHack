@@ -11,6 +11,14 @@ import UIKit
 class NewsFeedCell: UICollectionViewCell {
     @IBOutlet weak var newsFeedImage: UIImageView!
     
+    @IBOutlet weak var sourceLabel: UILabel!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var DescriptionLabel: UILabel!
+    
+    
+    
+    
+    @IBAction func saveToFavorites(_ sender: Any) {
+    }
 }
