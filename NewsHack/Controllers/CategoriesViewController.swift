@@ -15,10 +15,12 @@ class CategoriesViewController: UIViewController {
     private var onlineCategories = ["business", "entertainment",  "general", "health", "science", "sports", "technology"]
     private var searchedCategories = [String]()
     private var searchBarIsEmpty = true
+     private var gradient: CAGradientLayer!
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDataSoruceAndDelegate()
+        addGradient()
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,6 +35,15 @@ class CategoriesViewController: UIViewController {
             destination.onlineCategory = category
         }
        
+    }
+    private func addGradient(){
+        
+        let firstColor = UIColor.init(red: 255/255, green: 0/255, blue: 204/255, alpha: 1)
+        let secondColor = UIColor.init(red: 51/255, green: 51/255, blue: 153/255, alpha: 1)
+        gradient = CAGradientLayer()
+        gradient.frame = self.view.bounds
+        gradient.colors = [firstColor.cgColor, secondColor.cgColor]
+        self.view.layer.insertSublayer(gradient, at: 0)
     }
     private func setupDataSoruceAndDelegate(){
         searchBar.delegate = self
@@ -82,6 +93,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
             cell.categoryNameLabel.text =  searchedCategories[indexPath.row]
             setImage(imageName: searchedCategories[indexPath.row], cell: cell)
         }
+        cell.backgroundColor = .clear
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -101,7 +113,7 @@ extension CategoriesViewController: UISearchBarDelegate {
         } else {
             searchBarIsEmpty = false
             searchBar.text = searchText.lowercased()
-            searchedCategories = onlineCategories.filter{$0.lowercased().contains(searchText)}
+            searchedCategories = onlineCategories.filter{$0.lowercased().contains(searchText) || $0.uppercased().contains(searchText) }
             tableView.reloadData()
         }
     }
