@@ -150,7 +150,7 @@
         <!--Country-->
         <scene sceneID="SuY-Xd-un0">
             <objects>
-                <viewController id="p50-lV-XHY" sceneMemberID="viewController">
+                <viewController id="p50-lV-XHY" customClass="CountryCategoryViewController" customModule="NewsHack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cQt-Dr-c73">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -478,10 +478,10 @@
             </objects>
             <point key="canvasLocation" x="-4" y="132.68365817091455"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--View Controller-->
         <scene sceneID="81D-yi-LCl">
             <objects>
-                <viewController id="hTE-95-OdN" customClass="SettingsViewController" customModule="NewsHack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hTE-95-OdN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iy4-zf-KNR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
