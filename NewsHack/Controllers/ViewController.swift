@@ -47,8 +47,8 @@ extension ViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as? NewsFeedCell else {return UICollectionViewCell()}
         let thisArticle = articles[indexPath.row]
-        cell.titleLabel.text = thisArticle.title
-        cell.DescriptionLabel.text = thisArticle.description
+        cell.titleLabel.text = "Title: \(thisArticle.title)"
+        cell.DescriptionLabel.text = "Description: \(thisArticle.description)"
         ImageHelper.fetchImageFromNetwork(urlString: thisArticle.urlToImage) { (error, data) in
             if let error = error{
                 print(error.errorMessage())
