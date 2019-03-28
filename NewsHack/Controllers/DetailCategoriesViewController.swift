@@ -18,28 +18,43 @@ class DetailCategoriesViewController: UIViewController {
             }
         }
     }
+    var countryName = CountryNames.Australia
+    var countryInitals: String?
     var onlineCategory: String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //CategoriesNewsFeedCell
         setupDelegateAndDataSource()
-        getNewsByCategory()
+        getNewsByCategory(countryName: CountryNames.Argentina.rawValue)
     }
     private func setupDelegateAndDataSource(){
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    private func getNewsByCategory(){
-        ApiClient.getTopHeadlineByCategory(country: CountryNames.Argentina.rawValue, categories: onlineCategory) { [weak self] (articles, appError) in
+    private func getNewsByCategory(countryName: String){
+        ApiClient.getTopHeadlineByCategory(country: countryName, categories: onlineCategory) { [weak self] (articles, appError) in
             if let articles = articles {
                 self?.onlineArticles = articles
-                print("number of articles\(articles.count)")
+                print("number of articles \(articles.count)")
             }
+            
             if let appError = appError {
                 print("appError in the detail vc for categories : \(appError.localizedDescription)")
             }
         }
+    }
+    
+    @IBAction func unwindFromCountryCategoryViewController(_ segue: UIStoryboardSegue){
+        let sourceController = segue.source as! CountryCategoryViewController
+        guard let country = sourceController.usernameLabel.text else {
+            fatalError("No Country Name")
+        }
+        //countryName = country
+        countryInitals = sourceController.selectedCountry.rawValue
+        navigationItem.title = "Articles From \(country)"
+        getNewsByCategory(countryName: countryInitals ?? "us")
+        collectionView.reloadData()
     }
 }
 extension DetailCategoriesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
