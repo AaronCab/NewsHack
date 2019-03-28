@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SafariServices
 class FavoritesViewController: UIViewController {
     @IBOutlet weak var favoriteCollectionView: UICollectionView!
     
@@ -53,19 +53,28 @@ extension FavoritesViewController: UICollectionViewDataSource,UICollectionViewDe
                     cell.favoriteImage.image = image
                 }
             }
-        favoriteCell.titleLabel.text = favorite.title
-        favoriteCell.authorLabel.text = favorite.author
-        favoriteCell.descriptionTextView.text = favorite.description
+        cell.titleLabel.text = favorite.title
+        cell.authorLabel.text = favorite.author
+        cell.descriptionTextView.text = favorite.description
         return cell
         }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alert in
             self.deleteFavorite(indexPath: indexPath)
+            collectionView.reloadData()
+        }
+        let safariAction = UIAlertAction(title: "Safari", style: .default) { alert in
+            let favorite = ItemsDataManager.fetchItemsFromDocumentsDirectory()[indexPath.row]
+            let url = favorite.url
+            
+            let safariVC = SFSafariViewController(url: url)
+            self.present(safariVC, animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
+        alertController.addAction(safariAction)
         present(alertController, animated: true)
     }
     
