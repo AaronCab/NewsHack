@@ -20,6 +20,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    private var gradient: CAGradientLayer!
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         hideKeyboardWhenTappedAround()
         getArticles(keyword: "basketball")
+        addGradient()
     }
     private func getArticles(keyword: String){
         ApiClient.getAllArticles(query: keyword) { (error, data) in
@@ -37,7 +39,15 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    private func addGradient(){
+        
+        let firstColor = UIColor.init(red: 255/255, green: 0/255, blue: 204/255, alpha: 1)
+        let secondColor = UIColor.init(red: 51/255, green: 51/255, blue: 153/255, alpha: 1)
+        gradient = CAGradientLayer()
+        gradient.frame = self.view.bounds
+        gradient.colors = [firstColor.cgColor, secondColor.cgColor]
+        self.view.layer.insertSublayer(gradient, at: 0)
+    }
 }
 extension ViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

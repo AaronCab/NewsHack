@@ -82,6 +82,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
             cell.categoryNameLabel.text =  searchedCategories[indexPath.row]
             setImage(imageName: searchedCategories[indexPath.row], cell: cell)
         }
+        cell.backgroundColor = .clear
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
