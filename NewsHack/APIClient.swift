@@ -48,7 +48,8 @@ final class ApiClient{
     }
     
     static func getTopHeadlineByCategory(country: String, categories: String, completionHandler: @escaping([ArticleWrapper]?, AppError?) -> Void) {
-        let urlString =  "https://newsapi.org/v2/top-headlines?country=\(country)&category=\(categories)apiKey=\(ApiClient.key)"
+        //https://newsapi.org/v2/top-headlines?country=\(country)&category=\(categories)&apiKey=\(ApiClient.key)
+        let urlString =  "https://newsapi.org/v2/top-headlines?country=\(country)&category=\(categories)&apiKey=\(ApiClient.key)"
         NetworkHelper.shared.performDataTask(endpointURLString: urlString, httpMethod: "GET", httpBody: nil) { (error, data) in
             if let error = error {
                 completionHandler(nil, error)
