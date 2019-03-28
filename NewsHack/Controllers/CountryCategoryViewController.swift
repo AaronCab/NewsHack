@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class CountryCategoryViewController: UIViewController {
     @IBOutlet weak var profileImage: CircularImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
