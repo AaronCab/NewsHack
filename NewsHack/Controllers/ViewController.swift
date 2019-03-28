@@ -49,6 +49,7 @@ extension ViewController: UICollectionViewDataSource,NewsFeedCellDelegate {
         let thisArticle = articles[(indexPath?.row)!]
         let favoriteArticle = FavoritesModel.init(title: thisArticle.title, author: thisArticle.author!, imageURL: URL(string: thisArticle.urlToImage)!, description: thisArticle.description, url: URL(string: thisArticle.url)!)
         ItemsDataManager.saveToDocumentsDirectory(newFavoriteNews: favoriteArticle)
+        showAlert(title: "NewsHack", message: "Successfully Favorites Article")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
