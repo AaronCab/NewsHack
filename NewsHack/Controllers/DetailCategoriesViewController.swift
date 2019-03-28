@@ -21,10 +21,12 @@ class DetailCategoriesViewController: UIViewController {
     var countryName = CountryNames.Australia
     var countryInitals: String?
     var onlineCategory: String!
+    private var gradient: CAGradientLayer!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //CategoriesNewsFeedCell
+        addGradient()
         setupDelegateAndDataSource()
         getNewsByCategory(countryName: CountryNames.Argentina.rawValue)
     }
@@ -44,7 +46,15 @@ class DetailCategoriesViewController: UIViewController {
             }
         }
     }
-    
+    private func addGradient(){
+        
+        let firstColor = UIColor.init(red: 255/255, green: 0/255, blue: 204/255, alpha: 1)
+        let secondColor = UIColor.init(red: 51/255, green: 51/255, blue: 153/255, alpha: 1)
+        gradient = CAGradientLayer()
+        gradient.frame = self.view.bounds
+        gradient.colors = [firstColor.cgColor, secondColor.cgColor]
+        self.view.layer.insertSublayer(gradient, at: 0)
+    }
     @IBAction func unwindFromCountryCategoryViewController(_ segue: UIStoryboardSegue){
         let sourceController = segue.source as! CountryCategoryViewController
         guard let country = sourceController.usernameLabel.text else {
@@ -69,6 +79,13 @@ extension DetailCategoriesViewController: UICollectionViewDelegateFlowLayout, UI
         let aritcle = onlineArticles[indexPath.row]
         cell.titleLabel.text = "Title: \(aritcle.title)"
         cell.descriptionLabel.text = "Description: \(aritcle.description)"
+        ImageHelper.fetchImageFromNetwork(urlString: aritcle.urlToImage) { (error, data) in
+            if let error = error{
+                print(error.errorMessage())
+            } else if let data = data {
+                cell.newsFeedImage.image = data
+            }
+        }
         return cell
     }
 
