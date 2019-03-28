@@ -17,6 +17,8 @@ class NewsFeedCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var DescriptionLabel: UILabel!
     
+    @IBAction func addToFavorites(_ sender: Any) {
+    }
     
     
     
