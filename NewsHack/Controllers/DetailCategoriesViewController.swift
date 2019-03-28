@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SafariServices
 class DetailCategoriesViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -90,4 +90,36 @@ extension DetailCategoriesViewController: UICollectionViewDelegateFlowLayout, UI
     }
 
 
+}
+extension DetailCategoriesViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let saveAction = UIAlertAction.init(title: "Save Image", style: .default) { [unowned self] (alert) in
+            ImageHelper.fetchImageFromNetwork(urlString: self.onlineArticles[indexPath.row].urlToImage, completion: { (error, image) in
+                if let error = error {
+                    print(error.errorMessage())
+                } else if let image = image {
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+
+                }
+            })
+        }
+        let safariAction = UIAlertAction(title: "Safari", style: .default) { alert in
+            guard let url = URL(string: self.onlineArticles[indexPath.row].url) else {
+                return
+            }
+            
+            let safariVC = SFSafariViewController(url: url)
+            self.present(safariVC, animated: true, completion: nil)
+        }
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        alertController.addAction(safariAction)
+        present(alertController, animated: true)
+       
+    }
+    
+    
+    
 }
