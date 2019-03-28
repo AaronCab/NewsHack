@@ -59,6 +59,8 @@ extension FavoritesViewController: UICollectionViewDataSource,UICollectionViewDe
                 if let error = error {
                     print(error.errorMessage())
                 } else if let image = image {
+                    cell.favoriteImage.layer.borderWidth = 5
+                    cell.favoriteImage.layer.borderColor = UIColor.white.cgColor
                     cell.favoriteImage.image = image
                 }
             }

@@ -83,6 +83,8 @@ extension DetailCategoriesViewController: UICollectionViewDelegateFlowLayout, UI
             if let error = error{
                 print(error.errorMessage())
             } else if let data = data {
+                cell.newsFeedImage.layer.borderWidth = 5
+                cell.newsFeedImage.layer.borderColor = UIColor.white.cgColor
                 cell.newsFeedImage.image = data
             }
         }

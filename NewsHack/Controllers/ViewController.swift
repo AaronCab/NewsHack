@@ -81,6 +81,8 @@ extension ViewController: UICollectionViewDataSource,NewsFeedCellDelegate {
             if let error = error{
                 print(error.errorMessage())
             } else if let data = data {
+                cell.newsFeedImage.layer.borderWidth = 5
+                cell.newsFeedImage.layer.borderColor = UIColor.white.cgColor
                 cell.newsFeedImage.image = data
             }
         }
@@ -116,17 +118,9 @@ extension ViewController: UISearchBarDelegate{
             return
         } else {
             getArticles(keyword: searchText!)
+            searchBar.resignFirstResponder()
+            return
         }
     }
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        articles = [ArticleWrapper]()
-//        if searchText == "" {
-//            return
-//        } else {
-//            getArticles(keyword: searchText)
-//        }
-//
-//    }
-    
 }
 
