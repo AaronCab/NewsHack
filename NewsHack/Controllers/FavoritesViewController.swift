@@ -61,8 +61,11 @@ extension FavoritesViewController: UICollectionViewDataSource,UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alert in
-            self.deleteFavorite(indexPath: indexPath)
-            collectionView.reloadData()
+            self.confirmDeletionActionSheet(handler: { (deleteAction) in
+                self.deleteFavorite(indexPath: indexPath)
+                collectionView.reloadData()
+            })
+          
         }
         let safariAction = UIAlertAction(title: "Safari", style: .default) { alert in
             let favorite = ItemsDataManager.fetchItemsFromDocumentsDirectory()[indexPath.row]
