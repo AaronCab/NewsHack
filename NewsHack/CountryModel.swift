@@ -63,7 +63,6 @@ enum CountryNames: String, CaseIterable {
     case Taiwain = "tw"
     case Ukraine = "ua"
     case Venezuela = "ve"
-   
 }
 
 
