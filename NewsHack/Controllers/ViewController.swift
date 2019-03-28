@@ -61,6 +61,7 @@ extension ViewController: UICollectionViewDataSource,NewsFeedCellDelegate {
         cell.sourceLabel.text = "Source: \(thisArticle.source.name)"
         cell.titleLabel.text = "Title: \(thisArticle.title)"
         cell.DescriptionLabel.text = "Description: \(thisArticle.description)"
+        cell.delegate = self
        
        
         ImageHelper.fetchImageFromNetwork(urlString: thisArticle.urlToImage) { (error, data) in

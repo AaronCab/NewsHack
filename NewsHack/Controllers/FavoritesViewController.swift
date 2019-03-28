@@ -53,15 +53,16 @@ extension FavoritesViewController: UICollectionViewDataSource,UICollectionViewDe
                     cell.favoriteImage.image = image
                 }
             }
-        favoriteCell.titleLabel.text = favorite.title
-        favoriteCell.authorLabel.text = favorite.author
-        favoriteCell.descriptionTextView.text = favorite.description
+        cell.titleLabel.text = favorite.title
+        cell.authorLabel.text = favorite.author
+        cell.descriptionTextView.text = favorite.description
         return cell
         }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alert in
             self.deleteFavorite(indexPath: indexPath)
+            collectionView.reloadData()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(deleteAction)

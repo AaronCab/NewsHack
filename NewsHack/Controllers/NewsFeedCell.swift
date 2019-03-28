@@ -22,6 +22,7 @@ class NewsFeedCell: UICollectionViewCell {
     weak var delegate: NewsFeedCellDelegate!
     
     @IBAction func addToFavorites(_ sender: Any) {
+        delegate.didSaveArticle(cell: self)
     }
     
     
@@ -30,7 +31,7 @@ class NewsFeedCell: UICollectionViewCell {
 
 
     @IBAction func saveToFavorites(_ sender: Any) {
-        delegate.didSaveArticle(cell: self)
+        
     }
 
   
