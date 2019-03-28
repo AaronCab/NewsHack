@@ -8,46 +8,47 @@
 
 import Foundation
 
-final class ItemsDataManager<T: Codable> where T: Equatable {
-    private  var filename = "Documents.plist"
-    
+final class ItemsDataManager{
+    private  static let filename = "FavoritesModel.plist"
     // create
-    public func saveItemToDocumentsDirectory(item: T) {
+    static public func saveToDocumentsDirectory(newFavoriteNews: FavoritesModel) -> (success: Bool, error: Error?){
         let path = FileManagerHelper.filepathToDocumentsDirectory(filename: filename)
-        var items = fetchItemsFromDocumentsDirectory()
-        items.append(item)
+        var favoriteNews = fetchItemsFromDocumentsDirectory()
+        favoriteNews.append(newFavoriteNews)
         do {
-            let data = try PropertyListEncoder().encode(items)
+            let data = try PropertyListEncoder().encode(favoriteNews)
             try data.write(to: path, options: Data.WritingOptions.atomic)
         } catch {
             print("property list decoding error: \(error)")
+            return(false, nil)
         }
+        return(true, nil)
     }
     
     // read
-    public func fetchItemsFromDocumentsDirectory() -> [T] {
+    static public func fetchItemsFromDocumentsDirectory() -> [FavoritesModel] {
         let path = FileManagerHelper.filepathToDocumentsDirectory(filename: filename).path
-        var items = [T]()
+        var article = [FavoritesModel]()
+        var items = [FavoritesModel]()
         if FileManager.default.fileExists(atPath: path) {
             if let data = FileManager.default.contents(atPath: path) {
                 do {
-                    items = try PropertyListDecoder().decode([T].self, from: data)
+                    article = try PropertyListDecoder().decode([FavoritesModel].self, from: data)
+                    items = article
                 } catch {
                     print("property list decoding error: \(error)")
                 }
             } else {
                 print("data is nil")
             }
-        } else {
-            print("\(filename) does not exist")
         }
         return items
     }
     
     // update
-    public func updateItem(item: T, atIndex index: Int) {
-        let path = FileManagerHelper.filepathToDocumentsDirectory(filename: filename)
-        var items = fetchItemsFromDocumentsDirectory()
+    public func updateItem(item: FavoritesModel, atIndex index: Int) {
+        let path = FileManagerHelper.filepathToDocumentsDirectory(filename: ItemsDataManager.filename)
+        var items = ItemsDataManager.fetchItemsFromDocumentsDirectory()
         items[index] = item
         do {
             let data = try PropertyListEncoder().encode(items)
@@ -58,13 +59,11 @@ final class ItemsDataManager<T: Codable> where T: Equatable {
     }
     
     // delete
-    public func deleteItem(atIndex index: Int, item: T) {
-        let path = FileManagerHelper.filepathToDocumentsDirectory(filename: filename)
-        var items = fetchItemsFromDocumentsDirectory()
-        let index = items.index { $0 == item }
-        if let foundIndex = index {
-            items.remove(at: foundIndex)
-        }
+    static public func deleteItem(atIndex index: Int, item: FavoritesModel) {
+        let path = FileManagerHelper.filepathToDocumentsDirectory(filename: ItemsDataManager.filename)
+        var items = ItemsDataManager.fetchItemsFromDocumentsDirectory()
+        items.remove(at: index)
+        
         do {
             let data = try PropertyListEncoder().encode(items)
             try data.write(to: path, options: Data.WritingOptions.atomic)
