@@ -20,5 +20,6 @@ class NewsFeedCell: UICollectionViewCell {
     
     
     @IBAction func saveToFavorites(_ sender: Any) {
+        
     }
 }
