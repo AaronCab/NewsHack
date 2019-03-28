@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SafariServices
 class FavoritesViewController: UIViewController {
     @IBOutlet weak var favoriteCollectionView: UICollectionView!
     
@@ -64,9 +64,17 @@ extension FavoritesViewController: UICollectionViewDataSource,UICollectionViewDe
             self.deleteFavorite(indexPath: indexPath)
             collectionView.reloadData()
         }
+        let safariAction = UIAlertAction(title: "Safari", style: .default) { alert in
+            let favorite = ItemsDataManager.fetchItemsFromDocumentsDirectory()[indexPath.row]
+            let url = favorite.url
+            
+            let safariVC = SFSafariViewController(url: url)
+            self.present(safariVC, animated: true, completion: nil)
+        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
+        alertController.addAction(safariAction)
         present(alertController, animated: true)
     }
     
