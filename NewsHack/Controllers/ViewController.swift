@@ -11,8 +11,10 @@ import SafariServices
 
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBarLabel: UISearchBar!
+    
     private var articles = [ArticleWrapper](){
         didSet{
             DispatchQueue.main.async {
@@ -20,6 +22,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    private var gradient: CAGradientLayer!
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -27,6 +30,7 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         hideKeyboardWhenTappedAround()
         getArticles(keyword: "basketball")
+        addGradient()
     }
     private func getArticles(keyword: String){
         ApiClient.getAllArticles(query: keyword) { (error, data) in
@@ -37,9 +41,29 @@ class ViewController: UIViewController {
             }
         }
     }
+    private func addGradient(){
+        
+        let firstColor = UIColor.init(red: 255/255, green: 0/255, blue: 204/255, alpha: 1)
+        let secondColor = UIColor.init(red: 51/255, green: 51/255, blue: 153/255, alpha: 1)
+        gradient = CAGradientLayer()
+        gradient.frame = self.view.bounds
+        gradient.colors = [firstColor.cgColor, secondColor.cgColor]
+        self.view.layer.insertSublayer(gradient, at: 0)
+    }
+
+
+   
 
 }
-extension ViewController: UICollectionViewDataSource{
+extension ViewController: UICollectionViewDataSource,NewsFeedCellDelegate {
+    func didSaveArticle(cell: NewsFeedCell) {
+        let indexPath = collectionView.indexPath(for: cell)
+        let thisArticle = articles[(indexPath?.row)!]
+        let favoriteArticle = FavoritesModel.init(title: thisArticle.title, author: thisArticle.author!, imageURL: URL(string: thisArticle.urlToImage)!, description: thisArticle.description, url: URL(string: thisArticle.url)!)
+        ItemsDataManager.saveToDocumentsDirectory(newFavoriteNews: favoriteArticle)
+        showAlert(title: "NewsHack", message: "Successfully Favorites Article")
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articles.count
     }
@@ -50,10 +74,15 @@ extension ViewController: UICollectionViewDataSource{
         cell.sourceLabel.text = "Source: \(thisArticle.source.name)"
         cell.titleLabel.text = "Title: \(thisArticle.title)"
         cell.DescriptionLabel.text = "Description: \(thisArticle.description)"
+        cell.delegate = self
+       
+       
         ImageHelper.fetchImageFromNetwork(urlString: thisArticle.urlToImage) { (error, data) in
             if let error = error{
                 print(error.errorMessage())
             } else if let data = data {
+                cell.newsFeedImage.layer.borderWidth = 5
+                cell.newsFeedImage.layer.borderColor = UIColor.white.cgColor
                 cell.newsFeedImage.image = data
             }
         }
@@ -89,17 +118,9 @@ extension ViewController: UISearchBarDelegate{
             return
         } else {
             getArticles(keyword: searchText!)
+            searchBar.resignFirstResponder()
+            return
         }
     }
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        articles = [ArticleWrapper]()
-//        if searchText == "" {
-//            return
-//        } else {
-//            getArticles(keyword: searchText)
-//        }
-//
-//    }
-    
 }
 

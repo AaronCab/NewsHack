@@ -15,8 +15,9 @@ class CountryCategoryViewController: UIViewController {
     var selectedCountry = CountryNames.Argentina//"\(CountryNames.allCases[0])"
     
     @IBOutlet weak var pickerView: UIPickerView!
-    
+    private var gradient: CAGradientLayer!
     override func viewDidLoad() {
+        addGradient()
         super.viewDidLoad()
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -28,6 +29,15 @@ class CountryCategoryViewController: UIViewController {
     }
    private func sendCountryNameLabel(){
     performSegue(withIdentifier: "Unwind from Country Category ViewController", sender: self)
+    }
+    private func addGradient(){
+        
+        let firstColor = UIColor.init(red: 255/255, green: 0/255, blue: 204/255, alpha: 1)
+        let secondColor = UIColor.init(red: 51/255, green: 51/255, blue: 153/255, alpha: 1)
+        gradient = CAGradientLayer()
+        gradient.frame = self.view.bounds
+        gradient.colors = [firstColor.cgColor, secondColor.cgColor]
+        self.view.layer.insertSublayer(gradient, at: 0)
     }
     private func setImage(countryName: String){
         switch countryName {
