@@ -74,6 +74,9 @@
                                                     <state key="normal">
                                                         <color key="titleColor" red="0.63052593059999995" green="0.045729250419999999" blue="0.12005908699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="addToFavorites:" destination="VPL-mY-gbB" eventType="touchUpInside" id="ov6-El-VN5"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
