@@ -193,9 +193,11 @@
                         <outlet property="pickerView" destination="h9r-Y1-feY" id="Cvk-6o-JVd"/>
                         <outlet property="profileImage" destination="k1q-uT-oMW" id="Hpt-ah-rvm"/>
                         <outlet property="usernameLabel" destination="7QS-W3-TIK" id="R56-kV-i7p"/>
+                        <segue destination="kfm-CZ-se3" kind="unwind" identifier="Unwind from Country Category ViewController" unwindAction="unwindFromCountryCategoryViewController:" id="BnB-57-mTq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAw-9p-uS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="kfm-CZ-se3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4596" y="897"/>
         </scene>
