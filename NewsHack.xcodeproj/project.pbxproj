@@ -34,6 +34,7 @@
 		9380F12A224C2C660089A947 /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380F129224C2C660089A947 /* NewsFeedCell.swift */; };
 		9380F12C224C2C9D0089A947 /* CategoriesNewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380F12B224C2C9D0089A947 /* CategoriesNewsFeedCell.swift */; };
 		9380F12E224C53F40089A947 /* ImageHelperService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380F12D224C53F40089A947 /* ImageHelperService.swift */; };
+		9380F130224D0E7A0089A947 /* FavoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380F12F224D0E7A0089A947 /* FavoritesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		9380F129224C2C660089A947 /* NewsFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCell.swift; sourceTree = "<group>"; };
 		9380F12B224C2C9D0089A947 /* CategoriesNewsFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesNewsFeedCell.swift; sourceTree = "<group>"; };
 		9380F12D224C53F40089A947 /* ImageHelperService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelperService.swift; sourceTree = "<group>"; };
+		9380F12F224D0E7A0089A947 /* FavoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				9380F119224BF9160089A947 /* NewsModel.swift */,
 				9380F11B224C08660089A947 /* APIClient.swift */,
 				9380F12D224C53F40089A947 /* ImageHelperService.swift */,
+				9380F12F224D0E7A0089A947 /* FavoritesModel.swift */,
 				9380F116224BEE5E0089A947 /* Controllers */,
 				9380F115224BEE2A0089A947 /* Network Services */,
 				9380F114224BEDFB0089A947 /* Extensions */,
@@ -228,6 +231,7 @@
 				9380F11A224BF9160089A947 /* NewsModel.swift in Sources */,
 				9380F105224BE1A30089A947 /* Downsampleimage.swift in Sources */,
 				9380F111224BE2AD0089A947 /* String+Extensions.swift in Sources */,
+				9380F130224D0E7A0089A947 /* FavoritesModel.swift in Sources */,
 				9380F118224BEEA30089A947 /* CountryModel.swift in Sources */,
 				9380F0F1224BE0D10089A947 /* ViewController.swift in Sources */,
 				9380F10F224BE28C0089A947 /* NetworkHelper.swift in Sources */,
