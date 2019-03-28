@@ -11,8 +11,10 @@ import SafariServices
 
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBarLabel: UISearchBar!
+    
     private var articles = [ArticleWrapper](){
         didSet{
             DispatchQueue.main.async {
@@ -48,8 +50,20 @@ class ViewController: UIViewController {
         gradient.colors = [firstColor.cgColor, secondColor.cgColor]
         self.view.layer.insertSublayer(gradient, at: 0)
     }
+
+
+   
+
 }
-extension ViewController: UICollectionViewDataSource{
+extension ViewController: UICollectionViewDataSource,NewsFeedCellDelegate {
+    func didSaveArticle(cell: NewsFeedCell) {
+        let indexPath = collectionView.indexPath(for: cell)
+        let thisArticle = articles[(indexPath?.row)!]
+        let favoriteArticle = FavoritesModel.init(title: thisArticle.title, author: thisArticle.author!, imageURL: URL(string: thisArticle.urlToImage)!, description: thisArticle.description, url: URL(string: thisArticle.url)!)
+        ItemsDataManager.saveToDocumentsDirectory(newFavoriteNews: favoriteArticle)
+        showAlert(title: "NewsHack", message: "Successfully Favorites Article")
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articles.count
     }
@@ -60,6 +74,9 @@ extension ViewController: UICollectionViewDataSource{
         cell.sourceLabel.text = "Source: \(thisArticle.source.name)"
         cell.titleLabel.text = "Title: \(thisArticle.title)"
         cell.DescriptionLabel.text = "Description: \(thisArticle.description)"
+        cell.delegate = self
+       
+       
         ImageHelper.fetchImageFromNetwork(urlString: thisArticle.urlToImage) { (error, data) in
             if let error = error{
                 print(error.errorMessage())

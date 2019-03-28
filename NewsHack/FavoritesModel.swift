@@ -13,4 +13,5 @@ struct FavoritesModel: Codable {
     let author: String
     let imageURL: URL
     let description: String
+    let url: URL
 }
