@@ -1,6 +1,6 @@
 # NewsHack
 
-One Paragraph of project description goes here
+The app that allows you to be informed by current news from around the world and from mutiple news sources
 
 ## Getting Started
 
