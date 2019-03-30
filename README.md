@@ -18,9 +18,21 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 # Screens
 ### Screenhots and Gifs
 #### News Feed Tab
+* Search bar
+* News list feed 
+* Add to favorites button
 #### Category Tab
+* Search bar
+* category list feed 
+#### Detail Category Tab
+* News list feed
+* Select Country Button
+#### Country View
+* list of countries 
+* Picture of country 
+* Country name
 #### Favorite Tab
-
+* Favorite articles collection
 ## Versioning
 
 
