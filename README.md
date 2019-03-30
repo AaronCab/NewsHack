@@ -21,7 +21,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Creators
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Ibraheem Rawlinson**
+* **Aaron Cab**
+* **Ramu Adamu**
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
