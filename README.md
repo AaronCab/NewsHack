@@ -21,7 +21,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 * Search bar
 * News list feed 
 * Add to favorites button
-![NewsFeedTab](https://user-images.githubusercontent.com/43886009/55336004-368d3080-546a-11e9-9a6e-3d4a5a45505a.png)
+![NewsFeedTab](https://user-images.githubusercontent.com/43886009/55336638-46f1db00-546b-11e9-9b6b-4593ed8089a1.png)
 #### Category Tab
 * Search bar
 * category list feed 
