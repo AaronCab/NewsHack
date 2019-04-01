@@ -1,6 +1,6 @@
 # NewsHack
 
-The app that allows you to be informed by current news from both domestic and around the world from mutiple reliable news sources.
+The app that allows you to be informed by current news from around the world and from mutiple news sources
 
 ## Description
 
@@ -21,6 +21,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 * Search bar
 * News list feed 
 * Add to favorites button
+![NewsFeedTab](https://user-images.githubusercontent.com/43886009/55336004-368d3080-546a-11e9-9a6e-3d4a5a45505a.png)
 #### Category Tab
 * Search bar
 * category list feed 
@@ -28,20 +29,18 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 * News list feed
 * Select Country Button
 #### Country View
-* Country view gives the user a list of countries they can choose from to get news from that particular country.
-* Country view gives the user an image of the country's flag and name
-* User can read and view news in country's native language 
+* list of countries 
+* Picture of country 
+* Country name
 #### Favorite Tab
-* Favorite tab allows a user to bookmark/add an article to favorite list for later reading
-* The user is able to delete any article that was once favorite
-* The user can also select to view the article in safari
+* Favorite articles collection
 ## Versioning
 
 
 ## Creators
 
 * **Ibraheem Rawlinson**
-* **Aaron Cabreja**
+* **Aaron Cab**
 * **Ramu Adamu**
 
 ## License
