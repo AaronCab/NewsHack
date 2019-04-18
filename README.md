@@ -1,10 +1,10 @@
 # NewsHack
 
-The app that allows you to be informed by current news from around the world and from mutiple news sources
+The app that allows you to be informed by current news from around the world and from multiple news sources
 
 ## Description
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+In this day in age, the way we see our news or get our news is through social media or some sort of social platform. The issue with that is these platforms tend to present information that causes drama an controversy, they don’t inform the user as well. With this app, we plan on solving that issue by allowing users to see all types of news from multiple sources. They users control what they see not the developers of the app. This ensures that the users get content they actually want and informs about what’s really happening in the world. 
 
 
 ## Built With
