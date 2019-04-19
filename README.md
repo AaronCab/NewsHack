@@ -37,7 +37,7 @@ Currently, there are no specifications but when this app is in its final stage w
   * Country name
 #### Favorite Tab - Displays a collection of your favorites news articles to read and view later 
 * Favorite articles collection - If the user doesn't like and article you can delete it from your favorites 
-![Favorite Tab](https://user-images.githubusercontent.com/43886009/56427661-ae40c500-628a-11e9-94a5-5abfaf44be26.jpeg)
+![IMG_6657](https://user-images.githubusercontent.com/43886009/56427814-2effc100-628b-11e9-8664-b2c9cfd68a11.jpeg)
 ## Creators
 
 * **Ibraheem Rawlinson**
