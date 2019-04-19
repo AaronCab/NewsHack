@@ -31,7 +31,7 @@ Currently, there are no specifications but when this app is in its final stage w
 * Select Country Button - takes you to view of a lost of over 30 countries to choose from for news. 
 #### Country View 
 - This feature you are able to filter by country. If you live in Japan you can select Japan and all current news will come up from Japan in that language. This view includes: 
-![IMG_6654](https://user-images.githubusercontent.com/43886009/56427642-9ec17c00-628a-11e9-8d6e-b691d5ad3b96.jpeg)
+![IMG_6655](https://user-images.githubusercontent.com/43886009/56427861-5c4c6f00-628b-11e9-80ee-6db4d3c997d4.jpeg)
   * list of countries 
   * Picture of country 
   * Country name
