@@ -22,19 +22,16 @@ Currently, there are no specifications but when this app is in its final stage w
 * News list feed - A feed of the current news that is happening today
 * Add to favorites button - if.you are interested in a news article you can save it to your favorites and view it later 
 ![NewsFeedTab](https://user-images.githubusercontent.com/43886009/55336638-46f1db00-546b-11e9-9b6b-4593ed8089a1.png)
-#### Category Tab
-* Search bar
-* category list feed 
+#### Category Tab - the user is able select a list of topics to filter their news in that they see (for example Sports or Education) 
 #### Detail Category Tab
-* News list feed
-* Select Country Button
-#### Country View
+* News list feed - presents the news based of the category you selected before in the category tab.  
+* Select Country Button - takes you to view of a lost of over 30 countries to choose from for news. 
+#### Country View - This feature you are able to filter by country. If you live in Japan you can select Japan and all current news will come up from Japan in that language.
 * list of countries 
 * Picture of country 
 * Country name
-#### Favorite Tab
-* Favorite articles collection
-## Versioning
+#### Favorite Tab - Displays a collection of your favorites news articles to read and view later 
+* Favorite articles collection - If the user doesn't like and article you can delete it from your favorites 
 
 
 ## Creators
