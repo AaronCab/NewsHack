@@ -26,16 +26,18 @@ Currently, there are no specifications but when this app is in its final stage w
 - the user is able select a list of topics to filter their news in that they see (for example Sports or Education)
 ![IMG_6654](https://user-images.githubusercontent.com/43886009/56427544-49856a80-628a-11e9-8165-92436639f9de.jpeg)
 #### Detail Category Tab
+![IMG_6654](https://user-images.githubusercontent.com/43886009/56427576-67eb6600-628a-11e9-9060-7f5d58ed18fa.jpeg)
 * News list feed - presents the news based of the category you selected before in the category tab.  
 * Select Country Button - takes you to view of a lost of over 30 countries to choose from for news. 
-#### Country View - This feature you are able to filter by country. If you live in Japan you can select Japan and all current news will come up from Japan in that language.
-* list of countries 
-* Picture of country 
-* Country name
+#### Country View 
+- This feature you are able to filter by country. If you live in Japan you can select Japan and all current news will come up from Japan in that language. This view includes: 
+![IMG_6654](https://user-images.githubusercontent.com/43886009/56427642-9ec17c00-628a-11e9-8d6e-b691d5ad3b96.jpeg)
+  * list of countries 
+  * Picture of country 
+  * Country name
 #### Favorite Tab - Displays a collection of your favorites news articles to read and view later 
 * Favorite articles collection - If the user doesn't like and article you can delete it from your favorites 
-
-
+![IMG_6654](https://user-images.githubusercontent.com/43886009/56427661-ae40c500-628a-11e9-94a5-5abfaf44be26.jpeg)
 ## Creators
 
 * **Ibraheem Rawlinson**
