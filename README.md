@@ -26,7 +26,7 @@ Currently, there are no specifications but when this app is in its final stage w
 - the user is able select a list of topics to filter their news in that they see (for example Sports or Education)
 ![IMG_6654](https://user-images.githubusercontent.com/43886009/56427544-49856a80-628a-11e9-8165-92436639f9de.jpeg)
 #### Detail Category Tab
-![IMG_6654](https://user-images.githubusercontent.com/43886009/56427576-67eb6600-628a-11e9-9060-7f5d58ed18fa.jpeg)
+![IMG_6656](https://user-images.githubusercontent.com/43886009/56427922-9c135680-628b-11e9-9423-748199360dcb.jpeg)
 * News list feed - presents the news based of the category you selected before in the category tab.  
 * Select Country Button - takes you to view of a lost of over 30 countries to choose from for news. 
 #### Country View 
