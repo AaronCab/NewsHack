@@ -13,14 +13,14 @@ In this day in age, the way we see our news or get our news is through social me
 
 ## Project Specifications
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Currently, there are no specifications but when this app is in its final stage we will submit specs for those who are interested in cloning this application.
 
 # Screens
 ### Screenhots and Gifs
 #### News Feed Tab
-* Search bar
-* News list feed 
-* Add to favorites button
+* Search bar - searches for news from all types of platforms (from CNN to IGN)
+* News list feed - A feed of the current news that is happening today
+* Add to favorites button - if.you are interested in a news article you can save it to your favorites and view it later 
 ![NewsFeedTab](https://user-images.githubusercontent.com/43886009/55336638-46f1db00-546b-11e9-9b6b-4593ed8089a1.png)
 #### Category Tab
 * Search bar
