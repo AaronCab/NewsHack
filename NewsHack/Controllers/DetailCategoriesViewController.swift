@@ -78,9 +78,11 @@ extension DetailCategoriesViewController: UICollectionViewDelegateFlowLayout, UI
         }
         let aritcle = onlineArticles[indexPath.row]
        guard let thisTitle = aritcle.title, let thisDescription = aritcle.description else {return UICollectionViewCell()}
+      
         cell.titleLabel.text = "Title: \(thisTitle)"
         cell.descriptionLabel.text = "Description: \(thisDescription)"
-      ImageHelper.fetchImageFromNetwork(urlString: aritcle.urlToImage!) { (error, data) in
+      if let articleImage = aritcle.urlToImage{
+      ImageHelper.fetchImageFromNetwork(urlString: articleImage) { (error, data) in
             if let error = error{
                 print(error.errorMessage())
             } else if let data = data {
@@ -89,6 +91,10 @@ extension DetailCategoriesViewController: UICollectionViewDelegateFlowLayout, UI
                 cell.newsFeedImage.image = data
             }
         }
+        
+      } else {
+        cell.newsFeedImage.image = UIImage(named: "NewsHack")
+      }
         return cell
     }
 
