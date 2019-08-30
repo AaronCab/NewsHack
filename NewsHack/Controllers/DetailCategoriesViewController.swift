@@ -77,9 +77,10 @@ extension DetailCategoriesViewController: UICollectionViewDelegateFlowLayout, UI
             fatalError("CategoriesNewsFeedCell is nil")
         }
         let aritcle = onlineArticles[indexPath.row]
-        cell.titleLabel.text = "Title: \(aritcle.title)"
-        cell.descriptionLabel.text = "Description: \(aritcle.description)"
-        ImageHelper.fetchImageFromNetwork(urlString: aritcle.urlToImage) { (error, data) in
+       guard let thisTitle = aritcle.title, let thisDescription = aritcle.description else {return UICollectionViewCell()}
+        cell.titleLabel.text = "Title: \(thisTitle)"
+        cell.descriptionLabel.text = "Description: \(thisDescription)"
+      ImageHelper.fetchImageFromNetwork(urlString: aritcle.urlToImage!) { (error, data) in
             if let error = error{
                 print(error.errorMessage())
             } else if let data = data {
@@ -98,7 +99,7 @@ extension DetailCategoriesViewController: UICollectionViewDelegate{
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let saveAction = UIAlertAction.init(title: "Save Image", style: .default) { [unowned self] (alert) in
-            ImageHelper.fetchImageFromNetwork(urlString: self.onlineArticles[indexPath.row].urlToImage, completion: { (error, image) in
+          ImageHelper.fetchImageFromNetwork(urlString: self.onlineArticles[indexPath.row].urlToImage!, completion: { (error, image) in
                 if let error = error {
                     print(error.errorMessage())
                 } else if let image = image {
@@ -108,7 +109,7 @@ extension DetailCategoriesViewController: UICollectionViewDelegate{
             })
         }
         let safariAction = UIAlertAction(title: "Safari", style: .default) { alert in
-            guard let url = URL(string: self.onlineArticles[indexPath.row].url) else {
+          guard let url = URL(string: self.onlineArticles[indexPath.row].url!) else {
                 return
             }
             

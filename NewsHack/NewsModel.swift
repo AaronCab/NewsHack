@@ -15,11 +15,11 @@ struct NewsData: Codable {
 struct ArticleWrapper: Codable {
     let source: SourceWrapper
     let author: String?
-    let title: String
-    let description: String
-    let url: String
-    let urlToImage: String
-    let publishedAt: String
+    let title: String?
+    let description: String?
+    let url: String?
+    let urlToImage: String?
+    let publishedAt: String?
     let content: String?
 }
 
