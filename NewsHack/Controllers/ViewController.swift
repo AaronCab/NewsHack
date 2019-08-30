@@ -59,7 +59,8 @@ extension ViewController: UICollectionViewDataSource,NewsFeedCellDelegate {
     func didSaveArticle(cell: NewsFeedCell) {
         let indexPath = collectionView.indexPath(for: cell)
         let thisArticle = articles[(indexPath?.row)!]
-        let favoriteArticle = FavoritesModel.init(title: thisArticle.title, author: thisArticle.author!, imageURL: URL(string: thisArticle.urlToImage)!, description: thisArticle.description, url: URL(string: thisArticle.url)!)
+      guard let thisTitle = thisArticle.title, let thisAuthor = thisArticle.author, let thisImage = thisArticle.urlToImage, let thisDescription = thisArticle.description, let thisUrl = thisArticle.url else {return}
+      let favoriteArticle = FavoritesModel.init(title: thisTitle, author: thisAuthor, imageURL: URL(string: thisImage)!, description: thisDescription, url: URL(string: thisUrl)!)
         ItemsDataManager.saveToDocumentsDirectory(newFavoriteNews: favoriteArticle)
         showAlert(title: "NewsHack", message: "Successfully Favorites Article")
     }
@@ -71,13 +72,14 @@ extension ViewController: UICollectionViewDataSource,NewsFeedCellDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as? NewsFeedCell else {return UICollectionViewCell()}
         let thisArticle = articles[indexPath.row]
+       guard let thisTitle = thisArticle.title,  let thisImage = thisArticle.urlToImage, let thisDescription = thisArticle.description else {return UICollectionViewCell()}
         cell.sourceLabel.text = "Source: \(thisArticle.source.name)"
-        cell.titleLabel.text = "Title: \(thisArticle.title)"
-        cell.DescriptionLabel.text = "Description: \(thisArticle.description)"
+        cell.titleLabel.text = "Title: \(thisTitle)"
+        cell.DescriptionLabel.text = "Description: \(thisDescription)"
         cell.delegate = self
        
        
-        ImageHelper.fetchImageFromNetwork(urlString: thisArticle.urlToImage) { (error, data) in
+      ImageHelper.fetchImageFromNetwork(urlString: thisImage) { (error, data) in
             if let error = error{
                 print(error.errorMessage())
             } else if let data = data {
@@ -94,7 +96,7 @@ extension ViewController: UICollectionViewDataSource,NewsFeedCellDelegate {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let url = URL(string: articles[indexPath.row].url) else {
+      guard let url = URL(string: articles[indexPath.row].url!) else {
             return
         }
         
