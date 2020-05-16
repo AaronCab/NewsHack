@@ -13,7 +13,7 @@ class CountryCategoryViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     private var countryNames = [CountryNames]()
     var selectedCountry = CountryNames.Argentina//"\(CountryNames.allCases[0])"
-    
+    //HeyCrisit, github
     @IBOutlet weak var pickerView: UIPickerView!
     private var gradient: CAGradientLayer!
     override func viewDidLoad() {

@@ -18,6 +18,7 @@ final class ItemsDataManager{
         do {
             let data = try PropertyListEncoder().encode(favoriteNews)
             try data.write(to: path, options: Data.WritingOptions.atomic)
+          print(path)
         } catch {
             print("property list decoding error: \(error)")
             return(false, nil)

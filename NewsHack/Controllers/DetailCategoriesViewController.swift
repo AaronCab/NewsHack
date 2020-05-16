@@ -74,13 +74,23 @@ extension DetailCategoriesViewController: UICollectionViewDelegateFlowLayout, UI
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesNewsFeedCell", for: indexPath) as? CategoriesNewsFeedCell else {
-            fatalError("CategoriesNewsFeedCell is nil")
-        }
+          return UICollectionViewCell()}
+        
         let aritcle = onlineArticles[indexPath.row]
-       guard let thisTitle = aritcle.title, let thisDescription = aritcle.description else {return UICollectionViewCell()}
-      
+      if let thisTitle = aritcle.title{
         cell.titleLabel.text = "Title: \(thisTitle)"
+
+      } else {
+        cell.titleLabel.text = "Title: Not Available"
+
+      }
+      if let thisDescription = aritcle.description {
         cell.descriptionLabel.text = "Description: \(thisDescription)"
+
+      } else {
+      cell.descriptionLabel.text = "Description: No description"
+      }
+
       if let articleImage = aritcle.urlToImage{
       ImageHelper.fetchImageFromNetwork(urlString: articleImage) { (error, data) in
             if let error = error{
